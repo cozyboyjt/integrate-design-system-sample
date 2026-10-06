@@ -37,7 +37,7 @@
   flex-direction: column;
   gap: var(--spacing-16);
   min-height: 0;
-  padding: var(--spacing-16) var(--spacing-24);
+  padding: var(--spacing-16) var(--spacing-32);
   overflow-y: auto;
 }
 .ds-thread__composer {
@@ -45,6 +45,11 @@
   gap: var(--spacing-8);
   padding: var(--spacing-32) var(--spacing-32) var(--spacing-24);
   border-top: 1px solid var(--color-border-default);
+}
+
+/* Figma: the screen's message input carries the navy outline */
+.ds-thread__composer .ds-input {
+  border-color: var(--color-brand-primary);
 }
 
 .ds-thread__messages:focus-visible {

@@ -5,7 +5,8 @@
   gap: var(--spacing-8);
   width: 100%;
   min-height: 56px;
-  padding: var(--spacing-16) var(--spacing-8);
+  /* the 1px border is inside the 56px row height in Figma */
+  padding: calc(var(--spacing-16) - 1px) calc(var(--spacing-8) - 1px);
   border: 1px solid transparent;
   border-radius: var(--radius-sm);
   background: transparent;

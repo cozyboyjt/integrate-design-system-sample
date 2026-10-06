@@ -6,12 +6,14 @@ export interface NavItemProps extends Omit<ButtonHTMLAttributes<HTMLButtonElemen
   label: string;
   /** Glyph in the 40px icon holder. Defaults to a placeholder document icon (Figma: Icon). */
   icon?: ReactNode;
+  /** Glyph shown while active (Figma: the filled version). Falls back to `icon`. */
+  activeIcon?: ReactNode;
   /** Figma: State=Active. One active item per rail. */
   active?: boolean;
 }
 
 /** One destination in the navigation rail: icon + label. */
-export function NavItem({ label, icon, active = false, className, type = 'button', ...rest }: NavItemProps) {
+export function NavItem({ label, icon, activeIcon, active = false, className, type = 'button', ...rest }: NavItemProps) {
   return (
     <button
       type={type}
@@ -19,7 +21,7 @@ export function NavItem({ label, icon, active = false, className, type = 'button
       className={['ds-nav-item', active ? 'ds-nav-item--active' : null, className].filter(Boolean).join(' ')}
       {...rest}
     >
-      <span className="ds-nav-item__icon">{icon ?? <DocumentIcon size={24} />}</span>
+      <span className="ds-nav-item__icon">{(active ? (activeIcon ?? icon) : icon) ?? <DocumentIcon size={24} />}</span>
       <span className="ds-nav-item__label">{label}</span>
     </button>
   );
@@ -29,6 +31,8 @@ export interface NavbarItem {
   id: string;
   label: string;
   icon?: ReactNode;
+  /** Glyph while this item is active. */
+  activeIcon?: ReactNode;
 }
 
 export interface NavbarProps {
@@ -48,6 +52,7 @@ export function Navbar({ items, activeId, onSelect, className }: NavbarProps) {
           key={item.id}
           label={item.label}
           icon={item.icon}
+          activeIcon={item.activeIcon}
           active={item.id === activeId}
           onClick={() => onSelect?.(item.id)}
         />

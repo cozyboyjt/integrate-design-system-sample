@@ -8,7 +8,7 @@
   font-size: var(--font-size-body-md);
   font-weight: var(--font-weight-semibold);
   letter-spacing: -0.02em;
-  line-height: 1.3;
+  line-height: 1;
   color: var(--color-text-primary);
 }
 .ds-author-line__time {
@@ -55,16 +55,17 @@
   line-height: 1.5;
   color: var(--color-text-muted);
 }
-/* The bracket stretches with the quote and drops 40px below it, to the reply's avatar. */
+/* The bracket stretches with the quote and drops 20px below it, ending at the top of the reply's avatar. */
 .ds-reply-quote__connector {
   position: absolute;
   top: 12px;
-  bottom: -40px;
+  bottom: -20px;
   left: 27px;
   width: 35px;
   border: 2px solid var(--color-red-300);
   border-right: 0;
-  border-radius: 13px 0 0 13px;
+  border-bottom: 0;
+  border-radius: 13px 0 0 0;
   pointer-events: none;
 }
 
@@ -94,5 +95,5 @@
   font-size: var(--font-size-body-md);
   letter-spacing: -0.02em;
   line-height: 1.5;
-  color: var(--color-text-secondary);
+  color: var(--color-text-muted); /* Figma: body text uses text/muted */
 }

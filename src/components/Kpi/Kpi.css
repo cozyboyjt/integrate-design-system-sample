@@ -6,10 +6,19 @@
 }
 
 .ds-sparkline {
-  display: block;
+  position: relative;
   width: 220px;
   height: 61px;
   flex: none;
+}
+/* Figma: the 220×64 curve sits 17px right of, and 1px above, the 220×61 slot. */
+.ds-sparkline > img {
+  position: absolute;
+  top: -1px;
+  left: 17px;
+  width: 220px;
+  height: 64px;
+  max-width: none;
   object-fit: cover;
 }
 
@@ -39,7 +48,7 @@
   align-items: center;
   justify-content: space-between;
   gap: var(--scale-120);
-  min-height: 190px;
+  height: 190px;
   padding: var(--scale-40) var(--spacing-32) var(--spacing-64);
   background: var(--color-surface-card);
   border: 1px solid var(--color-surface-primary);

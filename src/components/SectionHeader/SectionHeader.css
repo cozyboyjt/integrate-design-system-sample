@@ -4,6 +4,9 @@
   justify-content: space-between;
   gap: var(--spacing-16);
 }
+.ds-section-header > .ds-button {
+  min-width: 120px; /* Figma: Filter button is 120 wide */
+}
 .ds-section-header__titles {
   display: flex;
   flex-direction: column;

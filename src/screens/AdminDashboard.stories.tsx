@@ -3,12 +3,13 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Breadcrumb } from '../components/Breadcrumb/Breadcrumb';
 import { BodyCell, StatusPill, type HeaderCellProps } from '../components/Table/Table';
 import { Button } from '../components/Button/Button';
-import { Chip } from '../components/Chip/Chip';
+import { Chip, type ChipProps } from '../components/Chip/Chip';
 import { ChevronDownIcon } from '../icons';
 import { KpiCard, KpiRow } from '../components/Kpi/Kpi';
 import { MemberTable, type MemberTableRow } from '../components/MemberTable/MemberTable';
 import { Navbar } from '../components/Navigation/Navigation';
 import { TopBar } from '../components/TopBar/TopBar';
+import { navItems, topBarProps } from './shared';
 
 const columns: HeaderCellProps[] = [
   { label: 'Name', sortable: true },
@@ -21,47 +22,45 @@ const columns: HeaderCellProps[] = [
   { label: 'Medications' },
 ];
 
-const plain = (id: string, score: string): MemberTableRow => ({
+type Severity = 'moderate' | 'severe' | 'mild';
+
+const member = (
+  id: string,
+  name: string,
+  status: [string, Severity],
+  score: [string, NonNullable<ChipProps['tone']>],
+  clinician: string,
+  sessions: string,
+  lastLogin: string,
+  medication: string,
+): MemberTableRow => ({
   id,
   cells: (
     <>
-      <BodyCell>Guy Hawkins</BodyCell>
-      <BodyCell>Moderate</BodyCell>
+      <BodyCell>{name}</BodyCell>
+      <BodyCell>
+        <StatusPill label={status[0]} tone={status[1]} />
+      </BodyCell>
       <BodyCell tone="strong">BPD</BodyCell>
-      <BodyCell>{score}</BodyCell>
-      <BodyCell>Selina Kyle</BodyCell>
-      <BodyCell>4</BodyCell>
-      <BodyCell>09/25/2025</BodyCell>
-      <BodyCell>Medications</BodyCell>
+      <BodyCell>
+        <Chip tone={score[1]}>{score[0]}</Chip>
+      </BodyCell>
+      <BodyCell>{clinician}</BodyCell>
+      <BodyCell>{sessions}</BodyCell>
+      <BodyCell>{lastLogin}</BodyCell>
+      <BodyCell tone="muted">{medication}</BodyCell>
     </>
   ),
 });
 
 const rows: MemberTableRow[] = [
-  {
-    id: 'r1',
-    cells: (
-      <>
-        <BodyCell>Guy Hawkins</BodyCell>
-        <BodyCell>
-          <StatusPill label="Moderate" />
-        </BodyCell>
-        <BodyCell tone="strong">BPD</BodyCell>
-        <BodyCell>
-          <Chip tone="success">32</Chip>
-        </BodyCell>
-        <BodyCell>Selina Kyle</BodyCell>
-        <BodyCell>4</BodyCell>
-        <BodyCell>09/25/2025</BodyCell>
-        <BodyCell tone="muted">lorem ipsum, lorem ipmsum</BodyCell>
-      </>
-    ),
-  },
-  plain('r2', '32'),
-  plain('r3', '7'),
-  plain('r4', '42'),
-  plain('r5', '2'),
-  plain('r6', '1'),
+  member('r1', 'Guy Hawkins', ['Moderate', 'moderate'], ['32', 'neutral'], 'Selina Kyle', '4', '09/25/2025', 'Risperidone'),
+  member('r2', 'Diana Prince', ['Severe', 'severe'], ['28', 'error'], 'Bruce Wayne', '3', '11/12/2024', 'Fluoxetin...'),
+  member('r3', 'Clark Kent', ['Mild', 'mild'], ['35', 'success'], 'Lois Lane', '5', '07/19/2025', 'Sertralin...'),
+  member('r4', 'Barry Allen', ['Moderate', 'moderate'], ['27', 'neutral'], 'Iris West', '2', '02/02/2026', 'Clomipram...'),
+  member('r5', 'Guy Hawkins', ['Moderate', 'moderate'], ['32', 'neutral'], 'Selina Kyle', '4', '09/25/2025', 'Bupropion...'),
+  member('r6', 'Jessica Jones', ['Severe', 'severe'], ['31', 'error'], 'Luke Cage', '6', '10/30/2024', 'Risperidone'),
+  member('r7', 'Matt Murdock', ['Mild', 'mild'], ['29', 'success'], 'Foggy Nelson', '1', '03/15/2025', 'Bupropion...'),
 ];
 
 const tabs = [
@@ -71,40 +70,30 @@ const tabs = [
   { id: 'revenue', label: 'Revenue' },
 ];
 
-const navItems = [
-  { id: 'home', label: 'Home' },
-  { id: 'courses', label: 'Courses' },
-  { id: 'sessions', label: 'Sessions' },
-  { id: 'community', label: 'Community' },
-];
-
 function Dashboard() {
   const [tab, setTab] = useState('all');
-  const [nav, setNav] = useState('community');
+  const [nav, setNav] = useState('home');
   return (
     <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', background: 'var(--color-surface-default)' }}>
-      <TopBar
-        logo={<strong className="text-heading-3">Integrate</strong>}
-        userName="Ashley Zahabian"
-        userRole="Admin"
-        notificationCount={6}
-      />
+      <TopBar {...topBarProps} />
       <div style={{ display: 'flex', flex: 1 }}>
         <Navbar items={navItems} activeId={nav} onSelect={setNav} />
-        <main style={{ flex: 1, padding: '32px 48px', display: 'grid', gap: 30, alignContent: 'start', minWidth: 0 }}>
+        <main style={{ flex: 1, padding: '32px 47px 32px 40px', display: 'grid', gap: 30, alignContent: 'start', minWidth: 0 }}>
           <div style={{ display: 'grid', gap: 24 }}>
             <Breadcrumb items={[{ label: 'Integrate BPD', href: '#' }, { label: 'Admin Dashboard' }]} />
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-              <h1 style={{ margin: 0, font: '700 40px/1.5 var(--font-family)', letterSpacing: '-0.02em' }}>Admin Dashboard</h1>
-              <Button variant="secondary" leftIcon={<ChevronDownIcon />}>
-                Last 30 Days
-              </Button>
+            <div style={{ display: 'grid', gap: 16 }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                <h1 style={{ margin: 0, font: '700 40px/1.5 var(--font-family)' }}>Admin Dashboard</h1>
+                <Button variant="secondary" leftIcon={<ChevronDownIcon />}>
+                  Last 30 Days
+                </Button>
+              </div>
+              <KpiRow>
+                <KpiCard label="Members" value={7} delta={{ text: '+12.8%', tone: 'success' }} />
+                <KpiCard label="Alerts" value={7} trend="down" delta={{ text: '+12.8%', tone: 'error' }} />
+                <KpiCard label="Revenue" value={7} trend="neutral" delta={{ text: '+12.8%', tone: 'info' }} />
+              </KpiRow>
             </div>
-            <KpiRow>
-              <KpiCard label="Members" value={7} delta={{ text: '+12.8%', tone: 'success' }} />
-              <KpiCard label="Alerts" value={7} trend="down" delta={{ text: '+12.8%', tone: 'error' }} />
-              <KpiCard label="Revenue" value={7} trend="neutral" delta={{ text: '+12.8%', tone: 'info' }} />
-            </KpiRow>
           </div>
           <MemberTable
             title="Member Management View"

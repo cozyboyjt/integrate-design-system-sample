@@ -22,7 +22,11 @@ export interface SparklineProps {
 
 /** 220×61 trend chart for a KPI card. Swap the trend to change which curve shows. */
 export function Sparkline({ trend = 'up' }: SparklineProps) {
-  return <img className="ds-sparkline" src={TREND_SRC[trend]} alt="" aria-hidden="true" />;
+  return (
+    <div className="ds-sparkline" aria-hidden="true">
+      <img src={TREND_SRC[trend]} alt="" />
+    </div>
+  );
 }
 
 /* ─── Chart placeholder ─────────────────────────────────── */

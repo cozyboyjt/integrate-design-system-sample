@@ -39,11 +39,13 @@ export function BodyCell({ tone = 'default', children }: BodyCellProps) {
 
 export interface StatusPillProps extends HTMLAttributes<HTMLSpanElement> {
   label: string;
+  /** Dot colour by severity (Figma: Tone). Moderate is violet, Severe red, Mild green. */
+  tone?: 'moderate' | 'severe' | 'mild';
 }
 
-export function StatusPill({ label, className, ...rest }: StatusPillProps) {
+export function StatusPill({ label, tone = 'moderate', className, ...rest }: StatusPillProps) {
   return (
-    <span className={['ds-status-pill', className].filter(Boolean).join(' ')} {...rest}>
+    <span className={['ds-status-pill', `ds-status-pill--${tone}`, className].filter(Boolean).join(' ')} {...rest}>
       <span className="ds-status-pill__dot" aria-hidden="true" />
       {label}
     </span>

@@ -1,4 +1,4 @@
-import type { HTMLAttributes } from 'react';
+import type { HTMLAttributes, ReactNode } from 'react';
 import { HeartIcon } from '../../icons';
 import { InitialsAvatar } from '../InitialsAvatar/InitialsAvatar';
 import { YouBadge } from '../YouBadge/YouBadge';
@@ -49,8 +49,8 @@ export function Reaction({ text, reacted = false, className, ...rest }: Reaction
 export interface ReplyQuoteProps {
   /** Initials of the author being replied to. */
   initials: string;
-  /** The quoted line. Start with the @mention. */
-  text: string;
+  /** The quoted line. Start with the @mention; wrap it in <strong> for the semibold look. */
+  text: ReactNode;
 }
 
 export function ReplyQuote({ initials, text }: ReplyQuoteProps) {
@@ -74,7 +74,7 @@ export interface MessageProps {
   /** Figma: Show reaction + Reaction props. */
   reaction?: { text: string; reacted?: boolean };
   /** Figma: Type=Reply — the line being replied to, shown above the message. */
-  replyTo?: { initials: string; text: string };
+  replyTo?: { initials: string; text: ReactNode };
 }
 
 /** One chat message. Add `replyTo` for Type=Reply. */
