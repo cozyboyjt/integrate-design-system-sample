@@ -1,0 +1,83 @@
+.ds-topbar {
+  --topbar-badge-bg: #b05a36; /* Figma: raw value, no token yet */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 103px;
+  padding: 0 var(--spacing-32);
+  background: var(--color-surface-card);
+  border-bottom: 1px solid var(--color-border-default);
+}
+
+.ds-topbar__logo {
+  display: flex;
+  align-items: center;
+}
+
+.ds-topbar__right {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-8);
+}
+
+.ds-topbar__bell {
+  position: relative;
+  display: inline-flex;
+  width: 33px;
+  height: 32px;
+  color: var(--color-text-primary);
+}
+
+.ds-topbar__badge {
+  position: absolute;
+  top: -2px;
+  right: -6px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 4px;
+  border-radius: var(--radius-full);
+  background: var(--topbar-badge-bg);
+  color: var(--color-text-white);
+  font-size: var(--font-size-body-sm);
+  font-weight: var(--font-weight-semibold);
+  line-height: 1;
+}
+
+.ds-topbar__user {
+  display: flex;
+  align-items: center;
+  gap: var(--scale-12);
+  padding: var(--spacing-8) var(--spacing-16);
+  border-radius: var(--radius-sm);
+}
+
+.ds-topbar__photo {
+  width: 42px;
+  height: 42px;
+  border-radius: var(--radius-full);
+  object-fit: cover;
+  flex: none;
+}
+
+.ds-topbar__who {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4);
+}
+.ds-topbar__name {
+  font-size: var(--font-size-body-md);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: -0.02em;
+  line-height: 1;
+  color: var(--color-text-primary);
+}
+.ds-topbar__role {
+  font-size: var(--font-size-body-sm);
+  letter-spacing: -0.02em;
+  line-height: 1.5;
+  color: var(--color-text-secondary);
+}

@@ -1,0 +1,17 @@
+/*
+ * Text styles — one class per Figma text style (heading/1 … body/sm/Regular).
+ * Letter spacing is -2% across the system; "auto" line height in Figma maps to 1.5 here.
+ */
+.text-heading-1 { font: var(--font-weight-semibold) var(--font-size-heading-h1)/1.5 var(--font-family); letter-spacing: -0.02em; }
+.text-heading-2 { font: var(--font-weight-semibold) var(--font-size-heading-h2)/1 var(--font-family); letter-spacing: -0.02em; }
+.text-heading-3 { font: var(--font-weight-medium) var(--font-size-heading-h3)/1 var(--font-family); letter-spacing: -0.02em; }
+
+.text-body-lg-semibold { font: var(--font-weight-semibold) var(--font-size-body-lg)/1 var(--font-family); letter-spacing: -0.02em; }
+.text-body-lg-medium { font: var(--font-weight-medium) var(--font-size-body-lg)/1 var(--font-family); letter-spacing: -0.02em; }
+
+.text-body-md-semibold { font: var(--font-weight-semibold) var(--font-size-body-md)/1 var(--font-family); letter-spacing: -0.02em; }
+.text-body-md-medium { font: var(--font-weight-medium) var(--font-size-body-md)/1 var(--font-family); letter-spacing: -0.02em; }
+.text-body-md-regular { font: var(--font-weight-regular) var(--font-size-body-md)/1.5 var(--font-family); letter-spacing: -0.02em; }
+
+.text-body-sm-semibold { font: var(--font-weight-semibold) var(--font-size-body-sm)/1 var(--font-family); letter-spacing: -0.02em; }
+.text-body-sm-regular { font: var(--font-weight-regular) var(--font-size-body-sm)/1.5 var(--font-family); letter-spacing: -0.02em; }

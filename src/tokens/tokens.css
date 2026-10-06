@@ -1,0 +1,149 @@
+/*
+ * Integrate design tokens
+ * Generated from the Figma file "CRRT Design System (Copy)" (Primitives + Semantic collections).
+ * Components must use the semantic tokens (--color-text-primary, --spacing-16, --radius-md …)
+ * and only reach for primitives (--color-blue-500, --scale-12 …) when no semantic token exists.
+ */
+:root {
+  /* ─── Primitives · Colour ─────────────────────────────── */
+  --color-blue-100: #c5dfff;
+  --color-blue-200: #55a2ff;
+  --color-blue-300: #0073ff;
+  --color-blue-400: #004daa;
+  --color-blue-500: #001c3e;
+
+  --color-violet-100: #f6f6fe;
+  --color-violet-200: #f0f0ff;
+  --color-violet-300: #cfcff3;
+  --color-violet-400: #9797e9;
+  --color-violet-500: #4a4aa4;
+
+  --color-red-100: #ffc8c0;
+  --color-red-200: #ea8a7d;
+  --color-red-300: #b04436;
+  --color-red-400: #852113;
+  --color-red-500: #531208;
+
+  --color-teal-100: #e2f7f9;
+  --color-teal-200: #c1e8eb;
+  --color-teal-300: #7dcad2;
+  --color-teal-400: #509ba2;
+  --color-teal-500: #1e6d74;
+
+  --color-tan-100: #fdf3e6;
+  --color-tan-200: #fad9b0;
+  --color-tan-300: #f3c38a;
+  --color-tan-400: #d69344;
+  --color-tan-500: #a37034;
+  --color-tan-600: #7e5628; /* added: Warning chip text, 4.8:1 on tan-200 */
+
+  --color-green-100: #dbfbdd;
+  --color-green-200: #9ce3a1;
+  --color-green-300: #6dd375;
+  --color-green-400: #4fba57;
+  --color-green-500: #45994b;
+  --color-green-600: #36773a; /* added: Success chip text, 4.9:1 on green-100 */
+
+  --color-neutral-white: #ffffff;
+  --color-neutral-100: #e4e0e0;
+  --color-neutral-200: #f5f2f2;
+  --color-neutral-300: #9f9f9f;
+  --color-neutral-350: #6b6b6b; /* added for accessible muted text — 5.3:1 on white, 4.8:1 on the page background */
+  --color-neutral-400: #636362;
+  --color-neutral-black: #221f1c;
+
+  /* ─── Primitives · Scale (px) ─────────────────────────── */
+  --scale-none: 0px;
+  --scale-1: 1px;
+  --scale-2: 2px; /* Figma value is 0 — treated as a typo, see README */
+  --scale-4: 4px;
+  --scale-8: 8px;
+  --scale-12: 12px;
+  --scale-16: 16px;
+  --scale-20: 20px;
+  --scale-24: 24px;
+  --scale-28: 28px;
+  --scale-32: 32px;
+  --scale-40: 40px;
+  --scale-64: 64px;
+  --scale-80: 80px;
+  --scale-120: 120px;
+  --scale-160: 160px;
+  --scale-200: 200px;
+  --scale-full: 9999px;
+
+  /* ─── Primitives · Type ───────────────────────────────── */
+  --font-family: 'Poppins', system-ui, sans-serif;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+
+  /* ─── Semantic · Text ─────────────────────────────────── */
+  --color-text-primary: var(--color-blue-500);
+  --color-text-secondary: var(--color-neutral-400);
+  --color-text-muted: var(--color-neutral-350);
+  --color-text-disabled: var(--color-neutral-200);
+  --color-text-white: var(--color-neutral-white);
+  --color-text-link: var(--color-violet-500);
+
+  /* ─── Semantic · Surface ──────────────────────────────── */
+  --color-surface-default: var(--color-neutral-200);
+  --color-surface-card: var(--color-neutral-white);
+  --color-surface-raised: var(--color-violet-100);
+  --color-surface-primary: var(--color-blue-500);
+  --color-surface-accent: var(--color-violet-300);
+
+  /* ─── Semantic · Border ───────────────────────────────── */
+  --color-border-default: var(--color-neutral-100);
+  --color-border-focus: var(--color-blue-200);
+  --color-border-subtle: var(--color-blue-100);
+  --color-border-disabled: var(--color-neutral-300);
+
+  /* ─── Semantic · Brand ────────────────────────────────── */
+  --color-brand-primary: var(--color-blue-500);
+  --color-brand-accent: var(--color-teal-300);
+  --color-brand-secondary: var(--color-violet-300);
+
+  /* ─── Semantic · Feedback ─────────────────────────────── */
+  --color-feedback-error-light: var(--color-red-200);
+  --color-feedback-error-default: var(--color-red-300);
+  --color-feedback-error-dark: var(--color-red-400);
+  --color-feedback-success-light: var(--color-green-200);
+  --color-feedback-success-default: var(--color-green-300);
+  --color-feedback-success-dark: var(--color-green-400);
+  --color-feedback-warning-light: var(--color-tan-200);
+  --color-feedback-warning-default: var(--color-tan-300);
+  --color-feedback-warning-dark: var(--color-tan-400);
+  --color-feedback-information-light: var(--color-violet-200);
+  --color-feedback-information-default: var(--color-violet-300);
+  --color-feedback-information-dark: var(--color-violet-400);
+
+  /* ─── Semantic · Spacing ──────────────────────────────── */
+  --spacing-none: var(--scale-none);
+  --spacing-4: var(--scale-4);
+  --spacing-8: var(--scale-8);
+  --spacing-16: var(--scale-16);
+  --spacing-24: var(--scale-24);
+  --spacing-32: var(--scale-32);
+  --spacing-64: var(--scale-64);
+
+  /* ─── Semantic · Radius ───────────────────────────────── */
+  --radius-none: var(--scale-none);
+  --radius-sm: var(--scale-4);
+  --radius-md: var(--scale-12);
+  --radius-lg: var(--scale-16);
+  --radius-full: var(--scale-full);
+
+  /* ─── Semantic · Font size ────────────────────────────── */
+  --font-size-body-sm: var(--scale-12);
+  --font-size-body-md: var(--scale-16);
+  --font-size-body-lg: var(--scale-20);
+  --font-size-heading-h1: var(--scale-40);
+  --font-size-heading-h2: var(--scale-32);
+  --font-size-heading-h3: var(--scale-24);
+
+  /* ─── Effects ─────────────────────────────────────────── */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.08), 0 2px 4px -2px rgb(0 0 0 / 0.06);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.08), 0 4px 6px -4px rgb(0 0 0 / 0.06);
+}

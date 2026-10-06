@@ -1,0 +1,26 @@
+.ds-section-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--spacing-16);
+}
+.ds-section-header__titles {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-8);
+}
+.ds-section-header__title {
+  margin: 0;
+  font-size: var(--font-size-heading-h3);
+  font-weight: var(--font-weight-medium);
+  letter-spacing: -0.02em;
+  line-height: 1;
+  color: var(--color-text-primary);
+}
+.ds-section-header__subtitle {
+  margin: 0;
+  font-size: var(--font-size-body-sm);
+  letter-spacing: -0.02em;
+  line-height: 1.5;
+  color: var(--color-text-muted);
+}

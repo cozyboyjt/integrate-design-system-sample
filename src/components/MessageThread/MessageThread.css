@@ -1,0 +1,53 @@
+/* Thread header */
+.ds-thread-header {
+  display: flex;
+  align-items: center;
+  height: 111px;
+  padding: 0 var(--spacing-32);
+  background: var(--color-surface-accent);
+  border: 1px solid var(--color-surface-primary);
+  border-radius: 0 var(--radius-lg) 0 0;
+}
+.ds-thread-header__title {
+  margin: 0;
+  font-size: var(--font-size-heading-h2);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: -0.02em;
+  line-height: 1;
+  color: var(--color-text-primary);
+}
+
+/* Message thread */
+.ds-thread {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  overflow: hidden;
+  background: var(--color-surface-card);
+  border: 1px solid var(--color-surface-primary);
+  border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
+}
+.ds-thread > .ds-thread-header {
+  border-width: 0 0 1px 0;
+  border-radius: 0;
+}
+.ds-thread__messages {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: var(--spacing-16);
+  min-height: 0;
+  padding: var(--spacing-16) var(--spacing-24);
+  overflow-y: auto;
+}
+.ds-thread__composer {
+  display: flex;
+  gap: var(--spacing-8);
+  padding: var(--spacing-32) var(--spacing-32) var(--spacing-24);
+  border-top: 1px solid var(--color-border-default);
+}
+
+.ds-thread__messages:focus-visible {
+  outline: 2px solid var(--color-border-focus);
+  outline-offset: -2px;
+}

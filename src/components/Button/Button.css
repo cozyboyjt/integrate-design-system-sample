@@ -1,0 +1,86 @@
+.ds-button {
+  --button-radius: 20px; /* Figma: pill radius 20 on both sizes */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-4);
+  padding: var(--spacing-8) var(--spacing-24);
+  border: 1px solid transparent;
+  border-radius: var(--button-radius);
+  font-family: var(--font-family);
+  letter-spacing: -0.02em;
+  line-height: 1;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background-color 120ms ease, border-color 120ms ease, color 120ms ease;
+}
+
+.ds-button:focus-visible {
+  outline: 2px solid var(--color-border-focus);
+  outline-offset: 2px;
+}
+
+/* ─── Sizes ─── */
+.ds-button--large {
+  --icon-size: 20px;
+  height: 46px;
+  font-size: var(--font-size-body-md);
+  font-weight: var(--font-weight-medium);
+}
+.ds-button--small {
+  --icon-size: 16px;
+  height: 37px;
+  font-size: var(--font-size-body-sm);
+  font-weight: var(--font-weight-semibold);
+}
+
+.ds-button__icon {
+  display: inline-flex;
+  width: var(--icon-size);
+  height: var(--icon-size);
+}
+.ds-button__icon > svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* ─── Secondary ─── */
+.ds-button--secondary {
+  background: var(--color-surface-raised);
+  border-color: var(--color-brand-primary);
+  color: var(--color-text-primary);
+}
+.ds-button--secondary:hover:not(:disabled) {
+  background: var(--color-violet-200);
+}
+.ds-button--secondary:active:not(:disabled) {
+  background: var(--color-violet-500);
+  color: var(--color-text-white);
+}
+.ds-button--secondary:disabled {
+  background: var(--color-neutral-100);
+  border-color: var(--color-border-disabled);
+  color: var(--color-text-muted);
+  cursor: not-allowed;
+}
+
+/* ─── Primary ─── */
+.ds-button--primary {
+  background: var(--color-brand-primary);
+  border-color: var(--color-brand-primary);
+  color: var(--color-text-white);
+}
+.ds-button--primary:hover:not(:disabled) {
+  background: var(--color-blue-400);
+  border-color: var(--color-blue-400);
+}
+.ds-button--primary:active:not(:disabled) {
+  background: var(--color-neutral-black);
+  border-color: var(--color-neutral-black);
+}
+.ds-button--primary:disabled {
+  background: var(--color-neutral-300);
+  border-color: var(--color-neutral-300);
+  color: var(--color-text-white);
+  cursor: not-allowed;
+}

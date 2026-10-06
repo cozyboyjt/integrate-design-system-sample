@@ -1,0 +1,26 @@
+.ds-chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 var(--spacing-16);
+  border-radius: var(--radius-md);
+  font-family: var(--font-family);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: -0.02em;
+  line-height: 1;
+  white-space: nowrap;
+}
+.ds-chip--small {
+  height: 28px;
+  font-size: var(--font-size-body-sm);
+}
+.ds-chip--large {
+  height: 32px;
+  font-size: var(--font-size-body-md);
+}
+
+.ds-chip--neutral { background: var(--color-neutral-100); color: var(--color-neutral-black); }
+.ds-chip--success { background: var(--color-green-100); color: var(--color-green-600); }
+.ds-chip--warning { background: var(--color-tan-200); color: var(--color-tan-600); }
+.ds-chip--error { background: var(--color-red-100); color: var(--color-red-500); }
+.ds-chip--info { background: var(--color-violet-300); color: var(--color-violet-500); }

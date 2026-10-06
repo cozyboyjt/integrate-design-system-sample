@@ -1,0 +1,17 @@
+.ds-avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  border-radius: var(--radius-full);
+  background: var(--color-brand-primary);
+  color: var(--color-text-white);
+  font-family: var(--font-family);
+  font-size: var(--font-size-body-sm);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: -0.02em;
+  line-height: 1;
+  user-select: none;
+}
+.ds-avatar--medium { width: 40px; height: 40px; }
+.ds-avatar--small { width: 24px; height: 24px; }

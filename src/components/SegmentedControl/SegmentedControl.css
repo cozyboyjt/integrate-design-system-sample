@@ -1,0 +1,40 @@
+.ds-segmented {
+  display: flex;
+  width: 100%;
+}
+
+.ds-segmented__pill {
+  flex: 1;
+  height: 54px;
+  padding: var(--spacing-8) var(--spacing-16);
+  border: 1px solid var(--color-brand-primary);
+  border-radius: var(--radius-md);
+  background: var(--color-red-100);
+  color: var(--color-text-primary);
+  font-family: var(--font-family);
+  font-size: var(--font-size-body-md);
+  font-weight: var(--font-weight-medium);
+  letter-spacing: -0.02em;
+  line-height: 1;
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+}
+
+/* The pills overlap by 24px; the selected one always paints on top. */
+.ds-segmented__pill + .ds-segmented__pill {
+  margin-left: calc(var(--spacing-24) * -1);
+}
+
+.ds-segmented__pill--selected {
+  z-index: 2;
+  background: var(--color-surface-card);
+  color: var(--color-text-primary);
+  font-weight: var(--font-weight-semibold);
+}
+
+.ds-segmented__pill:focus-visible {
+  outline: 2px solid var(--color-border-focus);
+  outline-offset: 2px;
+  z-index: 3;
+}
