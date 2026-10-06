@@ -102,8 +102,8 @@ function Dashboard() {
             </div>
             <KpiRow>
               <KpiCard label="Members" value={7} delta={{ text: '+12.8%', tone: 'success' }} />
-              <KpiCard label="Alerts" value={7} delta={{ text: '+12.8%', tone: 'error' }} />
-              <KpiCard label="Revenue" value={7} delta={{ text: '+12.8%', tone: 'info' }} />
+              <KpiCard label="Alerts" value={7} trend="down" delta={{ text: '+12.8%', tone: 'error' }} />
+              <KpiCard label="Revenue" value={7} trend="neutral" delta={{ text: '+12.8%', tone: 'info' }} />
             </KpiRow>
           </div>
           <MemberTable

@@ -5,6 +5,14 @@
   background: var(--color-neutral-100);
 }
 
+.ds-sparkline {
+  display: block;
+  width: 220px;
+  height: 61px;
+  flex: none;
+  object-fit: cover;
+}
+
 .ds-kpi-figure {
   display: flex;
   flex-direction: column;

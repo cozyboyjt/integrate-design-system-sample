@@ -57,6 +57,9 @@ export { SectionHeader, type SectionHeaderProps } from './components/SectionHead
 export { MemberTable, type MemberTableProps, type MemberTableRow } from './components/MemberTable/MemberTable';
 export {
   ChartPlaceholder,
+  Sparkline,
+  type Trend,
+  type SparklineProps,
   KpiFigure,
   KpiCard,
   KpiRow,

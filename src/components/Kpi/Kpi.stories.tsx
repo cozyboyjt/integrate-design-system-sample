@@ -1,12 +1,15 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { ChartPlaceholder, KpiCard, KpiFigure, KpiRow } from './Kpi';
+import { ChartPlaceholder, KpiCard, KpiFigure, KpiRow, Sparkline } from './Kpi';
 
 const meta = {
   title: 'Components/KPI card',
   component: KpiCard,
   tags: ['autodocs'],
-  args: { label: 'Members', value: 7, delta: { text: '+12.8%', tone: 'success' } },
-  argTypes: { chart: { control: false } },
+  args: { label: 'Members', value: 7, trend: 'up', delta: { text: '+12.8%', tone: 'success' } },
+  argTypes: {
+    chart: { control: false },
+    trend: { control: 'inline-radio', options: ['up', 'down', 'neutral'] },
+  },
   decorators: [
     (Story) => (
       <div style={{ maxWidth: 497 }}>
@@ -19,8 +22,8 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Success: Story = {};
-export const Error: Story = { args: { label: 'Alerts', delta: { text: '+12.8%', tone: 'error' } } };
-export const Info: Story = { args: { label: 'Revenue', delta: { text: '+12.8%', tone: 'info' } } };
+export const Error: Story = { args: { label: 'Alerts', trend: 'down', delta: { text: '-12.8%', tone: 'error' } } };
+export const Info: Story = { args: { label: 'Revenue', trend: 'neutral', delta: { text: '0.0%', tone: 'info' } } };
 
 /** Three across, as on the Admin Dashboard. */
 export const Row: Story = {
@@ -30,8 +33,8 @@ export const Row: Story = {
     <div style={{ maxWidth: 1529 }}>
       <KpiRow>
         <KpiCard label="Members" value={7} delta={{ text: '+12.8%', tone: 'success' }} />
-        <KpiCard label="Alerts" value={7} delta={{ text: '+12.8%', tone: 'error' }} />
-        <KpiCard label="Revenue" value={7} delta={{ text: '+12.8%', tone: 'info' }} />
+        <KpiCard label="Alerts" value={7} trend="down" delta={{ text: '-12.8%', tone: 'error' }} />
+        <KpiCard label="Revenue" value={7} trend="neutral" delta={{ text: '0.0%', tone: 'info' }} />
       </KpiRow>
     </div>
   ),
@@ -44,6 +47,9 @@ export const Parts: Story = {
   render: () => (
     <div style={{ display: 'flex', gap: 'var(--spacing-32)', alignItems: 'flex-start' }}>
       <KpiFigure label="Members" value={7} delta={{ text: '+12.8%', tone: 'success' }} />
+      <Sparkline trend="up" />
+      <Sparkline trend="down" />
+      <Sparkline trend="neutral" />
       <ChartPlaceholder />
     </div>
   ),
